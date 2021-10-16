@@ -16,6 +16,9 @@ public class bullet : MonoBehaviour
 
     private float time = 0.0f;
 
+    public GameObject Tower;
+    public GameObject Enemy;
+
     // Use this for initialization
     void Start()
     {
@@ -25,6 +28,8 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Tower.transform.LookAt(Enemy.transform);
+        
         time += Time.deltaTime;
         if (time >= 3)
         {
