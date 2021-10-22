@@ -93,7 +93,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 17b9e17606d0a15488e91cf5fe8425fc, type: 2}
+  - {fileID: 2100000, guid: 71b29ffa97d526448930c72280f42a7d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -159,5 +159,5 @@ MonoBehaviour:
   Bullet_Emitter: {fileID: 822649121338279650}
   Bullet: {fileID: 4024171492164414253, guid: a1d8761d7f4d0bc4c96d67a622b3dbaa, type: 3}
   Bullet_Forward_Force: 1
+  RPS: 0
   Tower: {fileID: 2893081095442191157}
-  Enemy: {fileID: 8924526812306138613, guid: 938131662d272ea47838200ce032297e, type: 3}

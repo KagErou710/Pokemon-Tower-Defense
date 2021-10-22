@@ -7,8 +7,10 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
 
     public float startHealth;
+    public int income;
     private float hp;
-    private bool judge = false;
+
+    public EnemySpawner enemySpawner;
 
     void Start()
     {
@@ -34,6 +36,7 @@ public class EnemyHealth : MonoBehaviour
             if (hp <= 0f)
             {
                 Destroy(gameObject);
+                EnemySpawner.funds += income;
             }
             
         }

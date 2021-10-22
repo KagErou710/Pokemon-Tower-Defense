@@ -5,6 +5,7 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     public float GoalHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class Goal : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "enemt")
+        if(collision.gameObject.tag == "enemy")
         {
             Destroy(collision.gameObject);
             GoalHealth -= 50;
