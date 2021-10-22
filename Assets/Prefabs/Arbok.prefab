@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2138794099831092989}
   - component: {fileID: -338678452813812850}
   m_Layer: 0
-  m_Name: enemy
+  m_Name: Arbok
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,8 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1f7a9dc3662d9458dfd94a4db62a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 10000
-  income: 30
+  startHealth: 1000
+  income: 500
   enemySpawner: {fileID: 0}
 --- !u!54 &-2138794099831092989
 Rigidbody:

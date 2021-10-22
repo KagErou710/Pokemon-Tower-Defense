@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2518377711114350962}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.56}
+  m_LocalPosition: {x: 0, y: 0, z: 0.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2518377711348194583}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2518377711348194571}
   m_Layer: 0
   m_Name: pikachu 3
-  m_TagString: Untagged
+  m_TagString: Pokemon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +144,5 @@ MonoBehaviour:
   Bullet_Forward_Force: 6000
   RPS: 1
   range: 25
-  enterCost: 10000
   destroyTime: 3
   Tower: {fileID: 2518377711348194572}

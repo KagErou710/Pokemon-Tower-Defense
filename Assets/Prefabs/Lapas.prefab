@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2138794099831092989}
   - component: {fileID: -338678452813812850}
   m_Layer: 0
-  m_Name: enemy 1
+  m_Name: Lapas
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 133c25ec61625e44393efc43cffa8db9, type: 2}
+  - {fileID: 2100000, guid: 29d0cd612d8f5a94da6f5742650c98da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,8 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1f7a9dc3662d9458dfd94a4db62a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 100
-  income: 30
+  startHealth: 2000
+  income: 2000
   enemySpawner: {fileID: 0}
 --- !u!54 &-2138794099831092989
 Rigidbody:

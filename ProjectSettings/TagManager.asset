@@ -9,6 +9,7 @@ TagManager:
   - Target
   - Ground
   - FundsController
+  - Pokemon
   layers:
   - Default
   - TransparentFX

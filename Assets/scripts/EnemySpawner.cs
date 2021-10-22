@@ -18,25 +18,63 @@ public class EnemySpawner : MonoBehaviour
     public static int funds = 2000;
     public float timer = 30f;
     public TMPro.TextMeshProUGUI textFunds;
-    public TMPro.TextMeshProUGUI textTimer;
     public TMPro.TextMeshProUGUI textPhase;
     public TMPro.TextMeshProUGUI textBoss;
 
+    private GameObject pokemon;
     private float time = 0.0f;
+    private int phase = 1;
+
+    private bool firstIsFinish = false;
+    private bool secondIsFinish = false;
+    private bool thirdIsFinish = false;
+    private bool restIsFinish = false;
+    private bool restIsFinish2 = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(firstPhase());
+        //spawnEnemy(Lapas);
         textFunds.text = "" + funds;
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        timer -= Time.deltaTime;
-        float randomTime = Random.Range(3.0f, 15.0f);
-        textTimer.text = "" + Mathf.Round(timer);
         textFunds.text = "" + funds;
+        isEnemy(phase);
+        if (firstIsFinish == true)
+        {
+            textPhase.text = "rest";
+            StartCoroutine(restTime());
+            if (restIsFinish == true)
+            {
+                StopCoroutine(restTime());
+                StartCoroutine(secondPhase());
+                firstIsFinish = false;
+                phase = 2;
+                restIsFinish = false;
+            }
+        }
+        else if (secondIsFinish == true)
+        {
+            textPhase.text = "rest";
+            StartCoroutine(restTime2());
+            Debug.Log("1:" + restIsFinish);
+            if (restIsFinish2 == true)
+            {
+                StopCoroutine(restTime2());
+                StartCoroutine(thirdPhase());
+                secondIsFinish = false;
+                phase = 3;
+                restIsFinish2 = false;
+            }
+        }
+        else if (thirdIsFinish == true)
+        {
+            textBoss.text = "u win";
+        }
     }
 
     private void spawnEnemy(GameObject enemy)
@@ -57,17 +95,117 @@ public class EnemySpawner : MonoBehaviour
         time = 0.0f;
     }
 
-    IEnumerator phaseCounter()
+    private void isEnemy(int num)
     {
-        //phase 1
+        pokemon = GameObject.FindGameObjectWithTag("enemy");
+        
+        if(num == 1)
+        {
+            if (pokemon == null)
+            {
+                firstIsFinish = true;
+            }
+            else
+            {
+                firstIsFinish = false;
+            }
+        }
+        else if (num == 2)
+        {
+            if (pokemon == null)
+            {
+                secondIsFinish = true;
+            }
+            else
+            {
+                secondIsFinish = false;
+            }
+        }
+        else if (num == 3)
+        {
+            if (pokemon == null)
+            {
+                thirdIsFinish = true;
+            }
+            else
+            {
+                thirdIsFinish = false;
+            }
+        }
+    }
+    IEnumerator restTime()
+    {
+        yield return new WaitForSeconds(5);
+        restIsFinish = true;
+    }
+
+    IEnumerator restTime2()
+    {
+        yield return new WaitForSeconds(5);
+        restIsFinish2 = true;
+    }
+
+
+    IEnumerator firstPhase()
+    {
         textPhase.text = "Phase 1";
+        
         for(int i = 0; i<10; i++)
         {
             spawnEnemy(Wobbuffet);
             yield return new WaitForSeconds(3);
         }
+        
         textBoss.text = "Phase Boss shows up";
+        spawnEnemy(Lapas);
+        yield return new WaitForSeconds(3);
+        textBoss.text = "";
+    }
+    
+    IEnumerator secondPhase()
+    {
+        textPhase.text = "Phase 2";
+
+        for (int i = 0; i < 5; i++)
+        {
+            spawnEnemy(Wobbuffet);
+            yield return new WaitForSeconds(3);
+            spawnEnemy(Wobbuffet);
+            yield return new WaitForSeconds(3);
+            spawnEnemy(Arbok);
+            yield return new WaitForSeconds(3);
+        }
+
+        textBoss.text = "Phase Boss shows up";
+        spawnEnemy(Buildtwo);
+        yield return new WaitForSeconds(3);
+        textBoss.text = "";
+    }
 
 
+    IEnumerator thirdPhase()
+    {
+        textPhase.text = "Phase 3";
+
+        for (int i = 0; i < 5; i++)
+        {
+            spawnEnemy(Wobbuffet);
+            yield return new WaitForSeconds(2);
+            spawnEnemy(Arbok);
+            yield return new WaitForSeconds(2);
+            spawnEnemy(Snorlax);
+            yield return new WaitForSeconds(2);
+            spawnEnemy(Arbok);
+            yield return new WaitForSeconds(2);
+            spawnEnemy(Snorlax);
+            yield return new WaitForSeconds(2);
+            spawnEnemy(Snorlax);
+            yield return new WaitForSeconds(2);
+        }
+
+        textBoss.text = "Phase Boss shows up";
+        spawnEnemy(JessieAndJames);
+        yield return new WaitForSeconds(3);
+        textBoss.text = "";
     }
 }

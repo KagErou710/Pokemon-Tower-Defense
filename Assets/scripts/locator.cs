@@ -12,6 +12,8 @@ public class locator : MonoBehaviour
     public GameObject pokemon3;
     public GameObject pokemon4;
     public TMPro.TextMeshProUGUI textCaution;
+    private bool isPokemon = false;
+    private bool canDelete = false;
 
 
     private Renderer rend;
@@ -32,56 +34,72 @@ public class locator : MonoBehaviour
 
     private void OnMouseDown()
     {
-        textCaution.text = "";
-        if (locatePokemon == "Venusaur")
+        
+    textCaution.text = "";         
+        if (gameObject.transform.childCount == 0)
         {
-            if (EnemySpawner.funds >= 300)
+            textCaution.text = "";
+            if (locatePokemon == "Venusaur")
             {
-                Instantiate(pokemon, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, gameObject.transform.position.z), Quaternion.identity);
-                EnemySpawner.funds -= 300;
+                if (EnemySpawner.funds >= 300)
+                {
+                    GameObject tempPokemon = Instantiate(pokemon, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2.5f, gameObject.transform.position.z), Quaternion.identity);
+                    EnemySpawner.funds -= 300;
+                    tempPokemon.transform.SetParent(gameObject.transform);
+                }
+                else
+                {
+                    textCaution.text = "Not enough money!";
+                }
             }
-            else
+            else if (locatePokemon == "Blastoise")
             {
-                textCaution.text = "Not enough money!";
+                if (EnemySpawner.funds >= 150)
+                {
+                    GameObject tempPokemon = Instantiate(pokemon2, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2.5f, gameObject.transform.position.z), Quaternion.identity);
+                    EnemySpawner.funds -= 150;
+                    tempPokemon.transform.SetParent(gameObject.transform);
+                }
+                else
+                {
+                    textCaution.text = "Not enough money!";
+                }
+            }
+            else if (locatePokemon == "Charizard")
+            {
+                if (EnemySpawner.funds >= 1000)
+                {
+                    GameObject tempPokemon = Instantiate(pokemon3, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2.5f, gameObject.transform.position.z), Quaternion.identity);
+                    EnemySpawner.funds -= 1000;
+                    tempPokemon.transform.SetParent(gameObject.transform);
+                }
+                else
+                {
+                    textCaution.text = "Not enough money!";
+                }
+            }
+            else if (locatePokemon == "Legend")
+            {
+                if (EnemySpawner.funds >= 10000)
+                {
+                    GameObject tempPokemon = Instantiate(pokemon4, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2.5f, gameObject.transform.position.z), Quaternion.identity);
+                    EnemySpawner.funds -= 10000;
+                    tempPokemon.transform.SetParent(gameObject.transform);
+                }
+                else
+                {
+                    textCaution.text = "Not enough money!";
+                }
             }
         }
-        else if (locatePokemon == "Blastoise")
+        else
         {
-            if (EnemySpawner.funds >= 150)
+            foreach (Transform child in gameObject.transform)
             {
-                Instantiate(pokemon2, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, gameObject.transform.position.z), Quaternion.identity);
-            EnemySpawner.funds -= 150;
-            }
-            else
-            {
-                textCaution.text = "Not enough money!";
+                GameObject.Destroy(child.gameObject);
             }
         }
-        else if(locatePokemon == "Charizard")
-        {
-            if (EnemySpawner.funds >= 1000)
-            {
-                Instantiate(pokemon3, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, gameObject.transform.position.z), Quaternion.identity);
-                EnemySpawner.funds -= 1000;
-            }
-            else
-            {
-                textCaution.text = "Not enough money!";
-            }
-        }
-        else if (locatePokemon == "Legend")
-        {
-            if (EnemySpawner.funds >= 10000)
-            {
-                Instantiate(pokemon4, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f, gameObject.transform.position.z), Quaternion.identity);
-                EnemySpawner.funds -= 10000;
-            }
-            else
-            {
-                textCaution.text = "Not enough money!";
-            }
-        }
-
+         
 
     }
 
