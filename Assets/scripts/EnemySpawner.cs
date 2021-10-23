@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject Enemy_Emitter;
     private float Bullet_Forward_Force = 10;
 
-    public static int funds = 2000;
+    public static int funds = 100000;
     public float timer = 30f;
     public TMPro.TextMeshProUGUI textFunds;
     public TMPro.TextMeshProUGUI textPhase;
@@ -84,7 +84,7 @@ public class EnemySpawner : MonoBehaviour
 
         //Sometimes bullets may appear rotated incorrectly due to the way its pivot was set from the original modeling package.
         //This is EASILY corrected here, you might have to rotate it from a different axis and or angle based on your particular mesh.
-        Temporary_Enemy_Handler.transform.Rotate(Vector3.left * 90);
+        Temporary_Enemy_Handler.transform.Rotate(Vector3.up * 180);
 
         //Retrieve the Rigidbody component from the instantiated Bullet and control it.
         Rigidbody Temporary_RigidBody;
@@ -171,9 +171,9 @@ public class EnemySpawner : MonoBehaviour
             spawnEnemy(Wobbuffet);
             yield return new WaitForSeconds(3);
             spawnEnemy(Wobbuffet);
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
             spawnEnemy(Arbok);
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
         }
 
         textBoss.text = "Phase Boss shows up";
@@ -190,17 +190,17 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             spawnEnemy(Wobbuffet);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(5);
             spawnEnemy(Arbok);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(5);
             spawnEnemy(Snorlax);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(5);
             spawnEnemy(Arbok);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(5);
             spawnEnemy(Snorlax);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             spawnEnemy(Snorlax);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
         }
 
         textBoss.text = "Phase Boss shows up";

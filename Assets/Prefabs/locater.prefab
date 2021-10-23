@@ -109,8 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverColor: {r: 0, g: 0, b: 0, a: 0}
-  pokemon: {fileID: 2518377711348194572, guid: fbe73aced144167428a1a4f9d440961c, type: 3}
-  pokemon2: {fileID: 2518377711348194572, guid: 4d7b9b9ec1ed02941b21074a392155a2, type: 3}
-  pokemon3: {fileID: 2518377711348194572, guid: 02752c87a424e1e4fbe204d8450cc828, type: 3}
-  pokemon4: {fileID: 2518377711348194572, guid: 841b5f6d229b0674a95dcdeb5c9ce4b8, type: 3}
+  pokemon: {fileID: 4048718724632201182, guid: 403de875417e1994db71fbe33ca3faba, type: 3}
+  pokemon2: {fileID: 2165312707287814106, guid: ac592b7c423ff19438ba32a8595f5964, type: 3}
+  pokemon3: {fileID: 9219030520491226827, guid: f3c6fb08fc7e82a4da121b95cd9c2752, type: 3}
+  pokemon4: {fileID: 6110698489856828686, guid: 9bcb5817fe747bf48b33e635fa71483b, type: 3}
   textCaution: {fileID: 0}

@@ -43,7 +43,7 @@ public class locator : MonoBehaviour
             {
                 if (EnemySpawner.funds >= 300)
                 {
-                    GameObject tempPokemon = Instantiate(pokemon, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2.5f, gameObject.transform.position.z), Quaternion.identity);
+                    GameObject tempPokemon = Instantiate(pokemon, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2.0f, gameObject.transform.position.z), Quaternion.identity);
                     EnemySpawner.funds -= 300;
                     tempPokemon.transform.SetParent(gameObject.transform);
                 }

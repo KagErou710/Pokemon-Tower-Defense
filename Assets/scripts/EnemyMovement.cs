@@ -17,32 +17,32 @@ public class EnemyMovement : MonoBehaviour
     {
         //GameObject Target = GameObject.FindGameObjectWithTag("Target");
         //Enemyself.transform.LookAt(Target.transform);
-        transform.Translate(Vector3.up * Time.deltaTime * speed);
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
     }
 
     IEnumerator timeExtender()
     {
         yield return new WaitForSeconds(5);
-        transform.Rotate(new Vector3(0, 0, 90));
+        transform.Rotate(new Vector3(0, 90, 0));
         yield return new WaitForSeconds(10);
-        transform.Rotate(new Vector3(0, 0, -90));
+        transform.Rotate(new Vector3(0, -90, 0));
         yield return new WaitForSeconds(5);
-        transform.Rotate(new Vector3(0, 0, -90));
+        transform.Rotate(new Vector3(0, -90, 0));
         yield return new WaitForSeconds(15);
-        transform.Rotate(new Vector3(0, 0, 90));
+        transform.Rotate(new Vector3(0, 90, 0));
         yield return new WaitForSeconds(5);
-        transform.Rotate(new Vector3(0, 0, 90));
+        transform.Rotate(new Vector3(0, 90, 0));
         yield return new WaitForSeconds(5);
-        transform.Rotate(new Vector3(0, 0, -90));
+        transform.Rotate(new Vector3(0, -90, 0));
         yield return new WaitForSeconds(5);
-        transform.Rotate(new Vector3(0, 0, -90));
+        transform.Rotate(new Vector3(0, -90, 0));
         yield return new WaitForSeconds(10);
-        transform.Rotate(new Vector3(0, 0, 90));
+        transform.Rotate(new Vector3(0, 90, 0));
         yield return new WaitForSeconds(5);
-        transform.Rotate(new Vector3(0, 0, 90));
+        transform.Rotate(new Vector3(0, 90, 0));
         yield return new WaitForSeconds(10);
-        transform.Rotate(new Vector3(0, 0, -90));
+        transform.Rotate(new Vector3(0, -90, 0));
         
     }
 

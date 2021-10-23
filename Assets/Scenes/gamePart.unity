@@ -5350,11 +5350,11 @@ PrefabInstance:
     - target: {fileID: 6884873602907928034, guid: 85f43b96c8627c342b4b982cf5d9bc9e, type: 3}
       propertyPath: Arbok
       value: 
-      objectReference: {fileID: 8924526812306138613, guid: 50b2ed9dc3ca989499fa8d92374d62bf, type: 3}
+      objectReference: {fileID: 4543803076365066050, guid: 06ea77b22e64f414197a68d96266315a, type: 3}
     - target: {fileID: 6884873602907928034, guid: 85f43b96c8627c342b4b982cf5d9bc9e, type: 3}
       propertyPath: Lapas
       value: 
-      objectReference: {fileID: 8924526812306138613, guid: 938131662d272ea47838200ce032297e, type: 3}
+      objectReference: {fileID: 9054312744161029754, guid: a51c2dd5e17e12d4db7ff20e73e0fe72, type: 3}
     - target: {fileID: 6884873602907928034, guid: 85f43b96c8627c342b4b982cf5d9bc9e, type: 3}
       propertyPath: Snorlax
       value: 
@@ -5362,7 +5362,7 @@ PrefabInstance:
     - target: {fileID: 6884873602907928034, guid: 85f43b96c8627c342b4b982cf5d9bc9e, type: 3}
       propertyPath: Buildtwo
       value: 
-      objectReference: {fileID: 8924526812306138613, guid: f8520c6de50326348902d2d2aaeadd67, type: 3}
+      objectReference: {fileID: 4270885337840503893, guid: 51127195891e4be43bd4d599ac8ecbf0, type: 3}
     - target: {fileID: 6884873602907928034, guid: 85f43b96c8627c342b4b982cf5d9bc9e, type: 3}
       propertyPath: textBoss
       value: 
@@ -5370,7 +5370,7 @@ PrefabInstance:
     - target: {fileID: 6884873602907928034, guid: 85f43b96c8627c342b4b982cf5d9bc9e, type: 3}
       propertyPath: Wobbuffet
       value: 
-      objectReference: {fileID: 8924526812306138613, guid: 676713d03558f2b4b84e137981b3a516, type: 3}
+      objectReference: {fileID: 1729660596453221682, guid: 1adfcb447b4770e49ba6c8c3346355df, type: 3}
     - target: {fileID: 6884873602907928034, guid: 85f43b96c8627c342b4b982cf5d9bc9e, type: 3}
       propertyPath: textFunds
       value: 
@@ -5386,7 +5386,7 @@ PrefabInstance:
     - target: {fileID: 6884873602907928034, guid: 85f43b96c8627c342b4b982cf5d9bc9e, type: 3}
       propertyPath: JessieAndJames
       value: 
-      objectReference: {fileID: 8924526812306138613, guid: 4e9c0761a8b760440ba4111c632143cc, type: 3}
+      objectReference: {fileID: 5296962229655625741, guid: eaa66da7c383ed24aad01a183af64e4c, type: 3}
     - target: {fileID: 6884873602907928036, guid: 85f43b96c8627c342b4b982cf5d9bc9e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
