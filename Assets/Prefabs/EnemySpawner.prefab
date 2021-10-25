@@ -123,7 +123,7 @@ BoxCollider:
   m_GameObject: {fileID: 6884873602907928033}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -139,8 +139,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfabf135582258b498170ae5746ad543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy1: {fileID: 7836068973118703258, guid: a6959f6c2a6352e4e9bc9faa85e31829, type: 3}
+  Wobbuffet: {fileID: 0}
+  Arbok: {fileID: 0}
+  Snorlax: {fileID: 0}
+  Lapas: {fileID: 0}
+  Buildtwo: {fileID: 0}
+  JessieAndJames: {fileID: 0}
   Enemy_Emitter: {fileID: 6884873601341009659}
   timer: 60
   textFunds: {fileID: 0}
-  textTimer: {fileID: 0}
+  textPhase: {fileID: 0}
+  textBoss: {fileID: 0}
+  MpPlayer: {fileID: 0}
+  clipFirstPhase: {fileID: 0}
+  clipFirstBoss: {fileID: 0}
+  clipSecondPhase: {fileID: 0}
+  clipSecondBoss: {fileID: 0}
+  clipThirdPhase: {fileID: 0}
+  clipThirdBoss: {fileID: 0}
+  kyukei: {fileID: 0}
+  kyukei2: {fileID: 0}

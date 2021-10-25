@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1f7a9dc3662d9458dfd94a4db62a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 2000
-  income: 2000
+  startHealth: 3000
+  income: 3000
   enemySpawner: {fileID: 0}
 --- !u!114 &7923749847673755566
 MonoBehaviour:

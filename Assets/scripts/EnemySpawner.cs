@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject Enemy_Emitter;
     private float Bullet_Forward_Force = 10;
 
-    public static int funds = 100000;
+    public static int funds = 2000;
     public float timer = 30f;
     public TMPro.TextMeshProUGUI textFunds;
     public TMPro.TextMeshProUGUI textPhase;
@@ -30,10 +30,22 @@ public class EnemySpawner : MonoBehaviour
     private bool thirdIsFinish = false;
     private bool restIsFinish = false;
     private bool restIsFinish2 = false;
+    private bool firstTime = false;
+
+    public AudioSource MpPlayer;
+    public AudioClip clipFirstPhase;
+    public AudioClip clipFirstBoss;
+    public AudioClip clipSecondPhase;
+    public AudioClip clipSecondBoss;
+    public AudioClip clipThirdPhase;
+    public AudioClip clipThirdBoss;
+    public AudioClip kyukei;
+    public AudioClip kyukei2;
 
     // Start is called before the first frame update
     void Start()
     {
+        //spawnEnemy(JessieAndJames);
         StartCoroutine(firstPhase());
         //spawnEnemy(Lapas);
         textFunds.text = "" + funds;
@@ -42,12 +54,17 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         textFunds.text = "" + funds;
         isEnemy(phase);
         if (firstIsFinish == true)
         {
             textPhase.text = "rest";
-            StartCoroutine(restTime());
+            if (firstTime == false)
+            {
+                StartCoroutine(restTime());
+                firstTime = true;
+            }
             if (restIsFinish == true)
             {
                 StopCoroutine(restTime());
@@ -55,13 +72,17 @@ public class EnemySpawner : MonoBehaviour
                 firstIsFinish = false;
                 phase = 2;
                 restIsFinish = false;
+                firstTime = false;
             }
         }
         else if (secondIsFinish == true)
         {
             textPhase.text = "rest";
-            StartCoroutine(restTime2());
-            Debug.Log("1:" + restIsFinish);
+            if (firstTime == false)
+            {
+                StartCoroutine(restTime2());
+                firstTime = true;
+            }
             if (restIsFinish2 == true)
             {
                 StopCoroutine(restTime2());
@@ -69,12 +90,14 @@ public class EnemySpawner : MonoBehaviour
                 secondIsFinish = false;
                 phase = 3;
                 restIsFinish2 = false;
+                firstTime = false;
             }
         }
         else if (thirdIsFinish == true)
         {
             textBoss.text = "u win";
         }
+        
     }
 
     private void spawnEnemy(GameObject enemy)
@@ -135,13 +158,19 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator restTime()
     {
-        yield return new WaitForSeconds(5);
+        MpPlayer.Stop();
+        MpPlayer.clip = kyukei;
+        MpPlayer.Play();
+        yield return new WaitForSeconds(33);
         restIsFinish = true;
     }
 
     IEnumerator restTime2()
     {
-        yield return new WaitForSeconds(5);
+        MpPlayer.Stop();
+        MpPlayer.clip = kyukei2;
+        MpPlayer.Play();
+        yield return new WaitForSeconds(40);
         restIsFinish2 = true;
     }
 
@@ -149,13 +178,17 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator firstPhase()
     {
         textPhase.text = "Phase 1";
-        
+        MpPlayer.clip = clipFirstPhase;
+        MpPlayer.Play();
+        MpPlayer.loop = false;
         for(int i = 0; i<10; i++)
         {
             spawnEnemy(Wobbuffet);
             yield return new WaitForSeconds(3);
         }
-        
+        MpPlayer.Stop();
+        MpPlayer.clip = clipFirstBoss;
+        MpPlayer.Play();
         textBoss.text = "Phase Boss shows up";
         spawnEnemy(Lapas);
         yield return new WaitForSeconds(3);
@@ -165,17 +198,23 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator secondPhase()
     {
         textPhase.text = "Phase 2";
+        MpPlayer.Stop();
+        MpPlayer.clip = clipSecondPhase;
+        MpPlayer.Play();
 
         for (int i = 0; i < 5; i++)
         {
             spawnEnemy(Wobbuffet);
             yield return new WaitForSeconds(3);
-            spawnEnemy(Wobbuffet);
+            spawnEnemy(Arbok);
             yield return new WaitForSeconds(5);
             spawnEnemy(Arbok);
             yield return new WaitForSeconds(5);
         }
 
+        MpPlayer.Stop();
+        MpPlayer.clip = clipSecondBoss;
+        MpPlayer.Play();
         textBoss.text = "Phase Boss shows up";
         spawnEnemy(Buildtwo);
         yield return new WaitForSeconds(3);
@@ -186,6 +225,9 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator thirdPhase()
     {
         textPhase.text = "Phase 3";
+        MpPlayer.Stop();
+        MpPlayer.clip = clipThirdPhase;
+        MpPlayer.Play();
 
         for (int i = 0; i < 5; i++)
         {
@@ -203,6 +245,9 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(3);
         }
 
+        MpPlayer.Stop();
+        MpPlayer.clip = clipThirdBoss;
+        MpPlayer.Play();
         textBoss.text = "Phase Boss shows up";
         spawnEnemy(JessieAndJames);
         yield return new WaitForSeconds(3);

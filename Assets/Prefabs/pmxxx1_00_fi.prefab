@@ -850,8 +850,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1f7a9dc3662d9458dfd94a4db62a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 5000
-  income: 5000
+  startHealth: 7500
+  income: 7500
   enemySpawner: {fileID: 0}
 --- !u!114 &-67652450473005753
 MonoBehaviour:
