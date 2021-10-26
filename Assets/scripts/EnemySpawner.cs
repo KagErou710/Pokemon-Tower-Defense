@@ -12,6 +12,12 @@ public class EnemySpawner : MonoBehaviour
     public GameObject Buildtwo;
     public GameObject JessieAndJames;
 
+    public GameObject cam1;
+    public GameObject cam2;
+    public GameObject cam3;
+    public GameObject cam4;
+    public GameObject boss;
+
     public GameObject Enemy_Emitter;
     private float Bullet_Forward_Force = 10;
 
@@ -42,11 +48,17 @@ public class EnemySpawner : MonoBehaviour
     public AudioClip kyukei;
     public AudioClip kyukei2;
 
+    public AudioSource VoicePlayer;
+    public AudioClip lapas;
+    public AudioClip buildtwo;
+    public AudioClip meaw;
+    public AudioClip yanakanji;
+
     // Start is called before the first frame update
     void Start()
     {
-        //spawnEnemy(JessieAndJames);
-        StartCoroutine(firstPhase());
+        spawnEnemy(JessieAndJames);
+        //StartCoroutine(firstPhase());
         //spawnEnemy(Lapas);
         textFunds.text = "" + funds;
     }
@@ -96,6 +108,9 @@ public class EnemySpawner : MonoBehaviour
         else if (thirdIsFinish == true)
         {
             textBoss.text = "u win";
+            VoicePlayer.clip = yanakanji;
+            VoicePlayer.Play();
+            thirdIsFinish = false;
         }
         
     }
@@ -191,7 +206,19 @@ public class EnemySpawner : MonoBehaviour
         MpPlayer.Play();
         textBoss.text = "Phase Boss shows up";
         spawnEnemy(Lapas);
-        yield return new WaitForSeconds(3);
+        VoicePlayer.clip = lapas;
+        VoicePlayer.Play();
+        cam1.SetActive(false);
+        cam2.SetActive(false);
+        cam3.SetActive(false);
+        cam4.SetActive(false);
+        boss.SetActive(true);
+        yield return new WaitForSeconds(5);
+        cam1.SetActive(true);
+        cam2.SetActive(false);
+        cam3.SetActive(false);
+        cam4.SetActive(false);
+        boss.SetActive(false);
         textBoss.text = "";
     }
     
@@ -216,9 +243,24 @@ public class EnemySpawner : MonoBehaviour
         MpPlayer.clip = clipSecondBoss;
         MpPlayer.Play();
         textBoss.text = "Phase Boss shows up";
+
+        cam1.SetActive(false);
+        cam2.SetActive(false);
+        cam3.SetActive(false);
+        cam4.SetActive(false);
+        boss.SetActive(true);
+
         spawnEnemy(Buildtwo);
-        yield return new WaitForSeconds(3);
+        VoicePlayer.clip = buildtwo;
+        VoicePlayer.Play();
+        yield return new WaitForSeconds(5);
         textBoss.text = "";
+
+        cam1.SetActive(true);
+        cam2.SetActive(false);
+        cam3.SetActive(false);
+        cam4.SetActive(false);
+        boss.SetActive(false);
     }
 
 
@@ -250,7 +292,19 @@ public class EnemySpawner : MonoBehaviour
         MpPlayer.Play();
         textBoss.text = "Phase Boss shows up";
         spawnEnemy(JessieAndJames);
-        yield return new WaitForSeconds(3);
+        VoicePlayer.clip = meaw;
+        VoicePlayer.Play();
+        cam1.SetActive(false);
+        cam2.SetActive(false);
+        cam3.SetActive(false);
+        cam4.SetActive(false);
+        boss.SetActive(true);
+        yield return new WaitForSeconds(5);
         textBoss.text = "";
+        cam1.SetActive(true);
+        cam2.SetActive(false);
+        cam3.SetActive(false);
+        cam4.SetActive(false);
+        boss.SetActive(false);
     }
 }

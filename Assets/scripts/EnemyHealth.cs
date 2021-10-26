@@ -10,6 +10,10 @@ public class EnemyHealth : MonoBehaviour
     public int income;
     private float hp;
 
+    public AudioSource Sound;
+    public AudioClip hit;
+    public AudioClip dead;
+
     public EnemySpawner enemySpawner;
 
     void Start()
@@ -31,10 +35,14 @@ public class EnemyHealth : MonoBehaviour
             Destroy(collision.gameObject);
             BulletDamage damage = collision.gameObject.GetComponent<BulletDamage>();
             hp -= damage.Damage;
+            Sound.clip = hit;
+            Sound.Play();
             //Destroy(gameObject);
             
             if (hp <= 0f)
             {
+                Sound.clip = dead;
+                Sound.Play();
                 Destroy(gameObject);
                 EnemySpawner.funds += income;
             }

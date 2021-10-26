@@ -15,6 +15,12 @@ public class locator : MonoBehaviour
     private bool isPokemon = false;
     private bool canDelete = false;
 
+    public AudioSource VoicePlayer;
+    public AudioClip C;
+    public AudioClip B;
+    public AudioClip V;
+    public AudioClip L;
+    public AudioClip monsterball;
 
     private Renderer rend;
     private Color startColor;
@@ -43,6 +49,8 @@ public class locator : MonoBehaviour
             {
                 if (EnemySpawner.funds >= 300)
                 {
+                    VoicePlayer.clip = V;
+                    VoicePlayer.Play();
                     GameObject tempPokemon = Instantiate(pokemon, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2.0f, gameObject.transform.position.z), Quaternion.identity);
                     EnemySpawner.funds -= 300;
                     tempPokemon.transform.SetParent(gameObject.transform);
@@ -56,6 +64,8 @@ public class locator : MonoBehaviour
             {
                 if (EnemySpawner.funds >= 150)
                 {
+                    VoicePlayer.clip = B;
+                    VoicePlayer.Play();
                     GameObject tempPokemon = Instantiate(pokemon2, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2.5f, gameObject.transform.position.z), Quaternion.identity);
                     EnemySpawner.funds -= 150;
                     tempPokemon.transform.SetParent(gameObject.transform);
@@ -69,6 +79,8 @@ public class locator : MonoBehaviour
             {
                 if (EnemySpawner.funds >= 1000)
                 {
+                    VoicePlayer.clip = C;
+                    VoicePlayer.Play();
                     GameObject tempPokemon = Instantiate(pokemon3, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2.5f, gameObject.transform.position.z), Quaternion.identity);
                     EnemySpawner.funds -= 1000;
                     tempPokemon.transform.SetParent(gameObject.transform);
@@ -82,6 +94,8 @@ public class locator : MonoBehaviour
             {
                 if (EnemySpawner.funds >= 10000)
                 {
+                    VoicePlayer.clip = L;
+                    VoicePlayer.Play();
                     GameObject tempPokemon = Instantiate(pokemon4, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2.5f, gameObject.transform.position.z), Quaternion.identity);
                     EnemySpawner.funds -= 10000;
                     tempPokemon.transform.SetParent(gameObject.transform);
@@ -96,6 +110,8 @@ public class locator : MonoBehaviour
         {
             foreach (Transform child in gameObject.transform)
             {
+                VoicePlayer.clip = monsterball;
+                VoicePlayer.Play();
                 GameObject.Destroy(child.gameObject);
             }
         }
@@ -107,5 +123,4 @@ public class locator : MonoBehaviour
     {
         rend.material.color = startColor;
     }
-
 }
