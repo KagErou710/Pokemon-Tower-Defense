@@ -60,6 +60,7 @@ public class EnemySpawner : MonoBehaviour
     {
         //spawnEnemy(Wobbuffet);
         StartCoroutine(firstPhase());
+        funds = 2000;
         textFunds.text = "" + funds;
     }
 

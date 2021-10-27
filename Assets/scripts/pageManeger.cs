@@ -15,7 +15,7 @@ public class pageManeger : MonoBehaviour
 
     public void loseWindown()
     {
-        SceneManager.LoadScene(lose);
+        SceneManager.LoadScene("lose");
     }
 
     // Update is called once per frame
