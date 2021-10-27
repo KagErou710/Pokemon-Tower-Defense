@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    public float GoalHealth;
-
     // Start is called before the first frame update
+
+    public AudioSource source;
+    public AudioClip voice;
+
     void Start()
     {
         
@@ -23,11 +26,18 @@ public class Goal : MonoBehaviour
         if(collision.gameObject.tag == "enemy")
         {
             Destroy(collision.gameObject);
-            GoalHealth -= 50;
-            if (GoalHealth <= 0f)
-            {
-                Destroy(gameObject);
-            }
+            source.clip = voice;
+            source.Play();
+            StartCoroutine(loadToLose());
+
         }
     }
+
+    IEnumerator loadToLose()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("lose");
+    }
+
+
 }

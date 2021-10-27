@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -57,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //spawnEnemy(JessieAndJames);
+        //spawnEnemy(Wobbuffet);
         StartCoroutine(firstPhase());
         textFunds.text = "" + funds;
     }
@@ -106,10 +107,14 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (thirdIsFinish == true)
         {
-            textBoss.text = "u win";
-            VoicePlayer.clip = yanakanji;
-            VoicePlayer.Play();
-            thirdIsFinish = false;
+            if (firstTime == false)
+            {
+                textBoss.text = "u win";
+                VoicePlayer.clip = yanakanji;
+                VoicePlayer.Play();
+                firstTime = true;
+                StartCoroutine(loadToWin());
+            }
         }
         
     }
@@ -305,5 +310,11 @@ public class EnemySpawner : MonoBehaviour
         cam3.SetActive(false);
         cam4.SetActive(false);
         boss.SetActive(false);
+    }
+
+    IEnumerator loadToWin()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("win");
     }
 }
