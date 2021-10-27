@@ -57,9 +57,8 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnEnemy(JessieAndJames);
-        //StartCoroutine(firstPhase());
-        //spawnEnemy(Lapas);
+        //spawnEnemy(JessieAndJames);
+        StartCoroutine(firstPhase());
         textFunds.text = "" + funds;
     }
 
@@ -273,7 +272,7 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            spawnEnemy(Wobbuffet);
+            spawnEnemy(Snorlax);
             yield return new WaitForSeconds(5);
             spawnEnemy(Arbok);
             yield return new WaitForSeconds(5);
