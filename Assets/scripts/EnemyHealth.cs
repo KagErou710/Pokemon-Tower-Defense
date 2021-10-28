@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -10,11 +11,19 @@ public class EnemyHealth : MonoBehaviour
     public int income;
     private float hp;
 
+    public AudioSource Sound;
+    public AudioClip hit;
+    public AudioClip dead;
+
     public EnemySpawner enemySpawner;
+
+    public Slider slider;
 
     void Start()
     {
         hp = startHealth;
+        slider.maxValue = hp;
+        slider.value = hp;
     }
 
     // Update is called once per frame
@@ -31,14 +40,22 @@ public class EnemyHealth : MonoBehaviour
             Destroy(collision.gameObject);
             BulletDamage damage = collision.gameObject.GetComponent<BulletDamage>();
             hp -= damage.Damage;
+            slider.value = hp;
+            Sound.clip = hit;
+            Sound.Play();
             //Destroy(gameObject);
             
             if (hp <= 0f)
             {
+                Sound.clip = dead;
+                Sound.Play();
                 Destroy(gameObject);
                 EnemySpawner.funds += income;
             }
             
         }
     }
+
+
+
 }
