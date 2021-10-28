@@ -25,7 +25,6 @@ public class Goal : MonoBehaviour
     {
         if(collision.gameObject.tag == "enemy")
         {
-            Destroy(collision.gameObject);
             source.clip = voice;
             source.Play();
             StartCoroutine(loadToLose());
@@ -35,7 +34,7 @@ public class Goal : MonoBehaviour
 
     IEnumerator loadToLose()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene("lose");
     }
 

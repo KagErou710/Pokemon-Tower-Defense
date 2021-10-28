@@ -1130,8 +1130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1f7a9dc3662d9458dfd94a4db62a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 7500
-  income: 7500
+  startHealth: 15000
+  income: 10000
   Sound: {fileID: 7573007417522908445}
   hit: {fileID: 8300000, guid: 05c579e86d608d841804974b88e4b755, type: 3}
   dead: {fileID: 8300000, guid: c98f8bf87f3cfd946a4b47817290e788, type: 3}

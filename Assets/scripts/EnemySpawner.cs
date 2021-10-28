@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //spawnEnemy(Wobbuffet);
+        //spawnEnemy(JessieAndJames);
         StartCoroutine(firstPhase());
         funds = 2000;
         textFunds.text = "" + funds;
@@ -110,7 +110,6 @@ public class EnemySpawner : MonoBehaviour
         {
             if (firstTime == false)
             {
-                textBoss.text = "u win";
                 VoicePlayer.clip = yanakanji;
                 VoicePlayer.Play();
                 firstTime = true;

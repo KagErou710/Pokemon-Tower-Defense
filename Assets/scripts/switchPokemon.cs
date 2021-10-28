@@ -23,7 +23,7 @@ public class switchPokemon : MonoBehaviour
         }
         else if (locator.locatePokemon == "Blastoise")
         {
-            textStatus.text = "Attack : 2\nRPS : 0.1s\nRange : 10";
+            textStatus.text = "Attack : 4\nRPS : 0.1s\nRange : 10";
         }
         else if (locator.locatePokemon == "Charizard")
         {

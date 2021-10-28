@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1f7a9dc3662d9458dfd94a4db62a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 1000
+  startHealth: 1200
   income: 250
   Sound: {fileID: 8684223901936150321}
   hit: {fileID: 8300000, guid: 05c579e86d608d841804974b88e4b755, type: 3}
